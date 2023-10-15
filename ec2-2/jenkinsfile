@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout') {
+            steps {
+                  echo "checkout stage"   
+            }
+        }
+        stage('terraform init stage') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+        stage('terraform plan stage') {
+            steps {
+                sh 'terraform plan'
+            }
+        }
+        stage('terraform apply stage') {
+            steps {
+                sh 'terraform apply --auto-approve'
+            }
+        }
+    }
+}
